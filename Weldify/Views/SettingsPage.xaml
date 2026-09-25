@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="Weldify.Views.SettingsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Settings"
+    BackgroundColor="{AppThemeBinding Light=#F7F8FA, Dark=#111315}">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="20">
+
+            <Label
+                Text="Settings"
+                FontSize="30"
+                FontAttributes="Bold" />
+
+            <Border
+                Padding="16"
+                StrokeThickness="0"
+                BackgroundColor="{AppThemeBinding Light=White, Dark=#1C1E20}"
+                StrokeShape="RoundRectangle 14">
+
+                <Grid
+                    ColumnDefinitions="*,Auto"
+                    ColumnSpacing="15">
+
+                    <VerticalStackLayout
+                        Spacing="3"
+                        VerticalOptions="Center">
+
+                        <Label
+                            Text="Dark Mode"
+                            FontSize="17"
+                            FontAttributes="Bold" />
+
+                        <Label
+                            Text="Switch between light and dark theme"
+                            FontSize="13"
+                            TextColor="{AppThemeBinding Light=#666666, Dark=#B8B8B8}" />
+
+                    </VerticalStackLayout>
+
+                    <Switch
+                        Grid.Column="1"
+                        x:Name="ThemeSwitch"
+                        VerticalOptions="Center"
+                        Toggled="ThemeSwitch_Toggled" />
+
+                </Grid>
+
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

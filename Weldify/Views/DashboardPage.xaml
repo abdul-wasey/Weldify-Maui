@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="Weldify.Views.DashboardPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:Weldify.ViewModels"
+    x:DataType="vm:DashboardPageViewModel"
+    Title="Dashboard"
+    BackgroundColor="{AppThemeBinding Light=#F7F8FA, Dark=#111315}">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="20">
+
+            <!-- Header -->
+            <VerticalStackLayout
+                Spacing="4">
+
+                <Label
+                    Text="WELDING SHOP"
+                    FontAttributes="Bold"
+                    FontSize="28"
+                    TextColor="{AppThemeBinding Light=#1C1C1E, Dark=White}" />
+
+                <Label
+                    Text="{Binding Greeting}"
+                    FontSize="17"
+                    TextColor="{AppThemeBinding Light=#666666, Dark=#B8B8B8}" />
+
+            </VerticalStackLayout>
+
+
+            <!-- New Job -->
+            <Button
+                Text="Create New Job"
+                Command="{Binding NewJobCommand}"
+                HeightRequest="60"
+                CornerRadius="14"
+                FontAttributes="Bold"
+                FontSize="18"
+                HorizontalOptions="Fill"
+                SemanticProperties.Description="Create a new welding job" />
+
+
+            <!-- Statistics -->
+            <Grid
+                ColumnDefinitions="*,*,*"
+                ColumnSpacing="10">
+
+                <!-- Today's Jobs -->
+                <Border
+                    Grid.Column="0"
+                    Padding="12"
+                    StrokeThickness="0"
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#1C1E20}"
+                    StrokeShape="RoundRectangle 14">
+
+                    <VerticalStackLayout
+                        Spacing="5"
+                        HorizontalOptions="Center">
+
+                        <Label
+                            Text="{Binding TodaysJobs}"
+                            FontAttributes="Bold"
+                            FontSize="26"
+                            HorizontalTextAlignment="Center" />
+
+                        <Label
+                            Text="Today"
+                            FontSize="13"
+                            TextColor="{AppThemeBinding Light=#666666, Dark=#B8B8B8}"
+                            HorizontalTextAlignment="Center" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+
+                <!-- Active Jobs -->
+                <Border
+                    Grid.Column="1"
+                    Padding="12"
+                    StrokeThickness="0"
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#1C1E20}"
+                    StrokeShape="RoundRectangle 14">
+
+                    <VerticalStackLayout
+                        Spacing="5"
+                        HorizontalOptions="Center">
+
+                        <Label
+                            Text="{Binding ActiveJobs}"
+                            FontAttributes="Bold"
+                            FontSize="26"
+                            HorizontalTextAlignment="Center" />
+
+                        <Label
+                            Text="Active"
+                            FontSize="13"
+                            TextColor="{AppThemeBinding Light=#666666, Dark=#B8B8B8}"
+                            HorizontalTextAlignment="Center" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+
+                <!-- Pending Quotations -->
+                <Border
+                    Grid.Column="2"
+                    Padding="12"
+                    StrokeThickness="0"
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#1C1E20}"
+                    StrokeShape="RoundRectangle 14">
+
+                    <VerticalStackLayout
+                        Spacing="5"
+                        HorizontalOptions="Center">
+
+                        <Label
+                            Text="{Binding PendingQuotations}"
+                            FontAttributes="Bold"
+                            FontSize="26"
+                            HorizontalTextAlignment="Center" />
+
+                        <Label
+                            Text="Quotes"
+                            FontSize="13"
+                            TextColor="{AppThemeBinding Light=#666666, Dark=#B8B8B8}"
+                            HorizontalTextAlignment="Center" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+            </Grid>
+
+
+            <!-- Recent Jobs -->
+            <VerticalStackLayout
+                Spacing="10">
+
+                <Label
+                    Text="Recent Jobs"
+                    FontAttributes="Bold"
+                    FontSize="20" />
+
+                <Border
+                    Padding="20"
+                    StrokeThickness="0"
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#1C1E20}"
+                    StrokeShape="RoundRectangle 14">
+
+                    <VerticalStackLayout
+                        Spacing="6"
+                        HorizontalOptions="Center">
+
+                        <Label
+                            Text="No jobs yet"
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            HorizontalTextAlignment="Center" />
+
+                        <Label
+                            Text="Create your first job to get started."
+                            FontSize="13"
+                            TextColor="{AppThemeBinding Light=#666666, Dark=#B8B8B8}"
+                            HorizontalTextAlignment="Center" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

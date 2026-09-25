@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Weldify.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Weldify"
+    xmlns:views="clr-namespace:Weldify.Views"
+    xmlns:helpers="clr-namespace:Weldify.Helpers"
+    FlyoutBehavior="Disabled"
+    Shell.TabBarIsVisible="True"
+    xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
+    Shell.ForegroundColor="{AppThemeBinding Light=#1C1C1E, Dark=#FFFFFF}"
+    Shell.UnselectedColor="{AppThemeBinding Light=#888888, Dark=#777777}">
+
+    <Shell.Resources>
+
+        <Style TargetType="TabBar">
+            <Setter
+                Property="Shell.TabBarBackgroundColor"
+                Value="{AppThemeBinding Light=White, Dark=#1C1C1E}" />
+
+            <Setter
+                Property="Shell.TabBarTitleColor"
+                Value="{AppThemeBinding Light=#1C1C1E, Dark=White}" />
+
+            <Setter
+                Property="Shell.TabBarUnselectedColor"
+                Value="{AppThemeBinding Light=#888888, Dark=#777777}" />
+        </Style>
+
+    </Shell.Resources>
+
+    <TabBar>
+
+        <!-- Home -->
+        <ShellContent
+            Title="Home"
+            Route="Dashboard"
+            ContentTemplate="{DataTemplate views:DashboardPage}"
+            Icon="{mi:Material Icon=Home}" />
+
+
+        <!-- Jobs -->
+        <ShellContent
+            Title="Jobs"
+            Route="Jobs"
+            ContentTemplate="{DataTemplate views:JobsPage}"
+            Icon="{mi:Material Icon=Work}" />
+
+
+        <!-- Customers -->
+        <ShellContent
+            Title="Customers"
+            Route="Customers"
+            ContentTemplate="{DataTemplate views:CustomersPage}"
+            Icon="{mi:Material Icon=People}" />
+
+
+        <!-- Settings -->
+        <ShellContent
+            Title="Settings"
+            Route="Settings"
+            ContentTemplate="{DataTemplate views:SettingsPage}"
+            Icon="{mi:Material Icon=Settings}" />
+
+    </TabBar>
+
+</Shell>

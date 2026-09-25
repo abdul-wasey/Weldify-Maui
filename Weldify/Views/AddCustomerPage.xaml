@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="Weldify.Views.AddCustomerPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Add Customer"
+    xmlns:viewModels="clr-namespace:Weldify.ViewModels"
+    x:DataType="viewModels:AddCustomerViewModel"
+    BackgroundColor="{AppThemeBinding Light=#F6F6F6, Dark=#101010}">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="16,12,16,24"
+            Spacing="14">
+
+            <!-- Header -->
+            <VerticalStackLayout Spacing="2">
+
+                <Label
+                    Text="Add Customer"
+                    FontSize="28"
+                    FontAttributes="Bold"
+                    TextColor="{AppThemeBinding Light=#1C1C1E, Dark=White}" />
+
+                <Label
+                    Text="Enter customer details"
+                    FontSize="14"
+                    TextColor="{AppThemeBinding Light=#777777, Dark=#AAAAAA}" />
+
+            </VerticalStackLayout>
+
+
+            <!-- Customer Details -->
+            <Border
+                Padding="16"
+                StrokeThickness="0"
+                BackgroundColor="{AppThemeBinding Light=White, Dark=#1C1C1E}">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="14" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="12">
+
+                    <Label
+                        Text="Customer Details"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="{AppThemeBinding Light=#1C1C1E, Dark=White}" />
+
+                    <Entry
+    Placeholder="Customer name"
+    Text="{Binding Name}"
+    ClearButtonVisibility="WhileEditing"
+    BackgroundColor="Transparent" />
+
+                    <Entry
+    Placeholder="Phone number"
+    Text="{Binding Phone}"
+    Keyboard="Telephone"
+    ClearButtonVisibility="WhileEditing"
+    BackgroundColor="Transparent" />
+
+                    <Editor
+    Placeholder="Address"
+    Text="{Binding Address}"
+    AutoSize="TextChanges"
+    MinimumHeightRequest="80"
+    BackgroundColor="Transparent" />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <!-- Save -->
+            <Grid
+    HeightRequest="52"
+    Margin="0,4,0,0">
+
+                <Button
+        Text="Save Customer"
+        Command="{Binding SaveCustomerCommand}"
+        HeightRequest="52"
+        CornerRadius="12"
+        FontAttributes="Bold"
+        FontSize="16"
+        BackgroundColor="{AppThemeBinding Light=#1C1C1E, Dark=White}"
+        TextColor="{AppThemeBinding Light=White, Dark=#1C1C1E}" />
+
+                <ActivityIndicator
+        IsRunning="{Binding IsBusy}"
+        IsVisible="{Binding IsBusy}"
+        HorizontalOptions="Center"
+        VerticalOptions="Center"
+        Color="{AppThemeBinding Light=White, Dark=#1C1C1E}" />
+
+            </Grid>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

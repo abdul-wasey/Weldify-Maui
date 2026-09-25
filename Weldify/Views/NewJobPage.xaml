@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="Weldify.Views.NewJobPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="New Job"
+    xmlns:viewModels="clr-namespace:Weldify.ViewModels"
+    x:DataType="viewModels:NewJobViewModel"
+    BackgroundColor="{AppThemeBinding Light=#F6F6F6, Dark=#101010}">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="16,12,16,24"
+            Spacing="14">
+
+            <!-- Header -->
+            <VerticalStackLayout Spacing="2">
+
+                <Label
+                    Text="New Job"
+                    FontSize="28"
+                    FontAttributes="Bold"
+                    TextColor="{AppThemeBinding Light=#1C1C1E, Dark=White}" />
+
+                <Label
+                    Text="Enter the details for this job"
+                    FontSize="14"
+                    TextColor="{AppThemeBinding Light=#777777, Dark=#AAAAAA}" />
+
+            </VerticalStackLayout>
+
+
+            <!-- Customer -->
+            <Border
+    Padding="16"
+    StrokeThickness="0"
+    BackgroundColor="{AppThemeBinding Light=White, Dark=#1C1C1E}">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="14" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="12">
+
+                    <!-- Section Header -->
+                    <Label
+            Text="Customer"
+            FontSize="18"
+            FontAttributes="Bold"
+            TextColor="{AppThemeBinding Light=#1C1C1E, Dark=White}" />
+
+                    <!-- Customer Selection -->
+                    <Grid
+            ColumnDefinitions="*,Auto"
+            ColumnSpacing="10">
+
+                        <Picker
+    ItemsSource="{Binding Customers}"
+    SelectedItem="{Binding SelectedCustomer,Mode=TwoWay}"
+    ItemDisplayBinding="{Binding Name}"
+    Title="Select customer" />
+
+                        <Button
+                Grid.Column="1"
+                Text="Add"
+                Padding="16,0"
+                HeightRequest="48"
+                CornerRadius="10"
+                FontAttributes="Bold"
+                BackgroundColor="{AppThemeBinding Light=#1C1C1E, Dark=White}"
+                TextColor="{AppThemeBinding Light=White, Dark=#1C1C1E}" 
+                            Clicked="Button_Clicked"/>
+
+                    </Grid>
+
+
+                    <!-- Selected Customer Details -->
+                    <Border
+            Padding="12"
+            StrokeThickness="1"
+            Stroke="{AppThemeBinding Light=#E5E5E5, Dark=#3A3A3A}"
+            BackgroundColor="{AppThemeBinding Light=#FAFAFA, Dark=#222222}">
+
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10" />
+                        </Border.StrokeShape>
+
+                        <Grid
+                RowDefinitions="Auto,Auto,Auto"
+                ColumnDefinitions="*,Auto"
+                RowSpacing="5">
+
+                            <!-- Name -->
+                            <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="{Binding SelectedCustomer.Name}"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    TextColor="{AppThemeBinding Light=#1C1C1E, Dark=White}" />
+
+                            <!-- Phone -->
+                            <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Text="{Binding SelectedCustomer.Phone}"
+                    FontSize="14"
+                    TextColor="{AppThemeBinding Light=#666666, Dark=#AAAAAA}" />
+
+                            <!-- Address -->
+                            <Label
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Text="{Binding SelectedCustomer.Address}"
+                    FontSize="14"
+                    TextColor="{AppThemeBinding Light=#666666, Dark=#AAAAAA}" />
+
+                            <!-- Edit -->
+                            <Button
+                    Grid.Row="0"
+                    Grid.RowSpan="3"
+                    Grid.Column="1"
+                    Text="Edit"
+                    Padding="12,0"
+                    HeightRequest="40"
+                    VerticalOptions="Center"
+                    CornerRadius="8"
+                    BackgroundColor="Transparent"
+                    TextColor="{AppThemeBinding Light=#1C1C1E, Dark=White}" />
+
+                        </Grid>
+
+                    </Border>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+
+            <!-- Job Details -->
+            <Border
+                Padding="16"
+                StrokeThickness="0"
+                BackgroundColor="{AppThemeBinding Light=White, Dark=#1C1C1E}">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="14" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="12">
+
+                    <Label
+                        Text="Job Details"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="{AppThemeBinding Light=#1C1C1E, Dark=White}" />
+
+                    <Entry
+                        Placeholder="Job number"
+                        BackgroundColor="Transparent" />
+
+                    <Picker
+                        Title="Job status"
+                        BackgroundColor="Transparent">
+                        <Picker.Items>
+                            <x:String>Draft</x:String>
+                            <x:String>Quotation</x:String>
+                            <x:String>Approved</x:String>
+                            <x:String>In Production</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+
+            <!-- Product -->
+            <Border
+                Padding="16"
+                StrokeThickness="0"
+                BackgroundColor="{AppThemeBinding Light=White, Dark=#1C1C1E}">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="14" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="12">
+
+                    <Label
+                        Text="Product"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="{AppThemeBinding Light=#1C1C1E, Dark=White}" />
+
+                    <Picker
+                        Title="Product type"
+                        BackgroundColor="Transparent">
+                        <Picker.Items>
+                            <x:String>Safety Grill</x:String>
+                            <x:String>Main Door</x:String>
+                            <x:String>Iron Window</x:String>
+                            <x:String>Balcony Grill</x:String>
+                            <x:String>Main Gate</x:String>
+                            <x:String>Stair Railing</x:String>
+                            <x:String>Balcony Railing</x:String>
+                            <x:String>Other</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                    <Picker
+                        Title="Material type"
+                        BackgroundColor="Transparent">
+                        <Picker.Items>
+                            <x:String>Square Pipe</x:String>
+                            <x:String>Rectangular Pipe</x:String>
+                            <x:String>Round Pipe</x:String>
+                            <x:String>Angle Iron</x:String>
+                            <x:String>Flat Bar</x:String>
+                            <x:String>Round Bar</x:String>
+                            <x:String>Sheet</x:String>
+                            <x:String>Channel</x:String>
+                            <x:String>Other</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                    <Picker
+                        Title="Gauge"
+                        BackgroundColor="Transparent">
+                        <Picker.Items>
+                            <x:String>12</x:String>
+                            <x:String>14</x:String>
+                            <x:String>16</x:String>
+                            <x:String>18</x:String>
+                            <x:String>20</x:String>
+                            <x:String>22</x:String>
+                            <x:String>24</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+
+            <!-- Measurements -->
+            <Border
+                Padding="16"
+                StrokeThickness="0"
+                BackgroundColor="{AppThemeBinding Light=White, Dark=#1C1C1E}">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="14" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="12">
+
+                    <Label
+                        Text="Measurements"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="{AppThemeBinding Light=#1C1C1E, Dark=White}" />
+
+                    <Grid
+                        ColumnDefinitions="*,*"
+                        ColumnSpacing="10">
+
+                        <Entry
+                            Grid.Column="0"
+                            Placeholder="Width"
+                            Keyboard="Numeric"
+                            BackgroundColor="Transparent" />
+
+                        <Entry
+                            Grid.Column="1"
+                            Placeholder="Height"
+                            Keyboard="Numeric"
+                            BackgroundColor="Transparent" />
+
+                    </Grid>
+
+                    <Grid
+                        ColumnDefinitions="*,*"
+                        ColumnSpacing="10">
+
+                        <Entry
+                            Grid.Column="0"
+                            Placeholder="Length"
+                            Keyboard="Numeric"
+                            BackgroundColor="Transparent" />
+
+                        <Picker
+                            Grid.Column="1"
+                            Title="Unit"
+                            BackgroundColor="Transparent">
+                            <Picker.Items>
+                                <x:String>Feet</x:String>
+                                <x:String>Inches</x:String>
+                                <x:String>Millimeter</x:String>
+                                <x:String>Centimeter</x:String>
+                            </Picker.Items>
+                        </Picker>
+
+                    </Grid>
+
+                    <Entry
+                        Placeholder="Quantity"
+                        Keyboard="Numeric"
+                        Text="1"
+                        BackgroundColor="Transparent" />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+
+            <!-- Finish -->
+            <Border
+                Padding="16"
+                StrokeThickness="0"
+                BackgroundColor="{AppThemeBinding Light=White, Dark=#1C1C1E}">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="14" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="12">
+
+                    <Label
+                        Text="Finish"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="{AppThemeBinding Light=#1C1C1E, Dark=White}" />
+
+                    <Picker
+                        Title="Finish type"
+                        BackgroundColor="Transparent">
+                        <Picker.Items>
+                            <x:String>None</x:String>
+                            <x:String>Red Oxide</x:String>
+                            <x:String>Enamel Paint</x:String>
+                            <x:String>Powder Coating</x:String>
+                            <x:String>Other</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                    <Entry
+                        Placeholder="Color"
+                        BackgroundColor="Transparent" />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+
+            <!-- Installation -->
+            <Border
+                Padding="16"
+                StrokeThickness="0"
+                BackgroundColor="{AppThemeBinding Light=White, Dark=#1C1C1E}">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="14" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="8">
+
+                    <Label
+                        Text="Installation"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="{AppThemeBinding Light=#1C1C1E, Dark=White}" />
+
+                    <Grid
+                        ColumnDefinitions="*,Auto"
+                        VerticalOptions="Center">
+
+                        <Label
+                            Text="Installation required"
+                            VerticalOptions="Center"
+                            TextColor="{AppThemeBinding Light=#333333, Dark=#DDDDDD}" />
+
+                        <Switch
+                            Grid.Column="1" />
+
+                    </Grid>
+
+                    <Entry
+                        Placeholder="Site address"
+                        BackgroundColor="Transparent" />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+
+            <!-- Notes -->
+            <Border
+                Padding="16"
+                StrokeThickness="0"
+                BackgroundColor="{AppThemeBinding Light=White, Dark=#1C1C1E}">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="14" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="12">
+
+                    <Label
+                        Text="Notes"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="{AppThemeBinding Light=#1C1C1E, Dark=White}" />
+
+                    <Editor
+                        Placeholder="Design details, customer instructions..."
+                        AutoSize="TextChanges"
+                        MinimumHeightRequest="100"
+                        BackgroundColor="Transparent" />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+
+            <!-- Save -->
+            <Button
+                Text="Save Job"
+                HeightRequest="52"
+                CornerRadius="12"
+                FontAttributes="Bold"
+                FontSize="16"
+                Margin="0,4,0,0"
+                BackgroundColor="{AppThemeBinding Light=#1C1C1E, Dark=White}"
+                TextColor="{AppThemeBinding Light=White, Dark=#1C1C1E}" />
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>
