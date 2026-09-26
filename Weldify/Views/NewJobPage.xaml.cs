@@ -23,7 +23,7 @@ public partial class NewJobPage : ContentPage, IQueryAttributable
         await _viewModel.LoadCustomersAsync();
     }
 
-    public async void ApplyQueryAttributes(
+    public void ApplyQueryAttributes(
         IDictionary<string, object> query)
     {
         if (query.TryGetValue("customerId", out var value) &&
@@ -33,8 +33,6 @@ public partial class NewJobPage : ContentPage, IQueryAttributable
         }
     }
 
-    private async void Button_Clicked(object sender, EventArgs e)
-    {
+    private async void Button_Clicked(object sender, EventArgs e) => 
         await Shell.Current!.GoToAsync(nameof(AddCustomerPage));
-    }
 }

@@ -72,6 +72,7 @@ namespace Weldify
         {
             builder.Services.AddSingleton<IThemeService, ThemeService>();
             builder.Services.AddTransient<ICustomerService, CustomerService>();
+            builder.Services.AddTransient<IJobService, JobService>();
         }
     }
 }

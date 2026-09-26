@@ -1,0 +1,218 @@
+﻿# =========================
+# .NET / Visual Studio
+# =========================
+
+.vs/
+.vscode/
+.idea/
+
+bin/
+obj/
+
+[Bb]uild/
+[Bb]uildOutput/
+
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+*.pidb
+*.svclog
+*.scc
+
+# Visual Studio Code
+.history/
+
+# Rider
+*.DotSettings.user
+
+
+# =========================
+# .NET MAUI
+# =========================
+
+# MAUI generated files
+**/MauiProgram.g.cs
+**/*.g.cs
+**/*.g.i.cs
+
+# Generated resources
+**/Resources/Raw/**/bin/
+**/Resources/Raw/**/obj/
+
+
+# =========================
+# NuGet
+# =========================
+
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+project.lock.json
+project.fragment.lock.json
+
+
+# =========================
+# Build / Publish
+# =========================
+
+publish/
+artifacts/
+TestResults/
+
+*.dll
+*.exe
+*.pdb
+
+
+# =========================
+# Android
+# =========================
+
+*.apk
+*.aab
+
+**/obj/Debug/net*-android/
+**/obj/Release/net*-android/
+
+# Android generated files
+*.keystore
+*.jks
+
+
+# =========================
+# iOS / MacCatalyst
+# =========================
+
+**/obj/Debug/net*-ios/
+**/obj/Release/net*-ios/
+
+**/obj/Debug/net*-maccatalyst/
+**/obj/Release/net*-maccatalyst/
+
+# Xcode
+DerivedData/
+*.xcuserstate
+xcuserdata/
+
+
+# =========================
+# Windows
+# =========================
+
+**/obj/Debug/net*-windows/
+**/obj/Release/net*-windows/
+
+
+# =========================
+# macOS
+# =========================
+
+.DS_Store
+
+
+# =========================
+# Logs
+# =========================
+
+*.log
+logs/
+Log/
+
+
+# =========================
+# Local databases
+# =========================
+
+# SQLite database
+*.db
+*.db3
+*.sqlite
+*.sqlite3
+
+# Weldify local database
+WeldifyDb.db3
+
+
+# =========================
+# Secrets / Local settings
+# =========================
+
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+
+.env
+.env.*
+
+# User secrets
+secrets/
+
+
+# =========================
+# Certificates / Signing
+# =========================
+
+*.pfx
+*.p12
+*.cer
+*.crt
+
+# Keep signing configs out of Git
+*.mobileprovision
+
+
+# =========================
+# Temporary files
+# =========================
+
+*.tmp
+*.temp
+*.bak
+*.swp
+*.orig
+*~
+
+# Windows thumbnail cache
+Thumbs.db
+
+
+# =========================
+# Coverage
+# =========================
+
+coverage/
+coverage-report/
+*.coverage
+*.coveragexml
+
+
+# =========================
+# JetBrains
+# =========================
+
+_ReSharper*/
+*.[Rr]e[Ss]harper*
+*.DotSettings.user
+
+
+# =========================
+# Generated documentation
+# =========================
+
+*.xml
+!Weldify/**/*.xml
+
+
+# =========================
+# OS files
+# =========================
+
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
